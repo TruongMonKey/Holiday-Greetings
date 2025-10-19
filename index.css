@@ -176,12 +176,14 @@ header h1 {
 }
 
 .message-wrap {
-    max-height: 260px;
+    /* give the message more space by default */
+    max-height: 380px;
+    padding: 8px 4px;
 }
 
 .message-wrap p {
-    font-size: 1.06rem;
-    line-height: 1.65
+    font-size: 1.12rem;
+    line-height: 1.8;
 }
 
 /* enlarge album and envelope visuals */
@@ -536,6 +538,10 @@ footer.meta {
     .hero-main {
         font-size: 1.05rem;
         text-align: center;
+        /* allow long headings to wrap and avoid overflow */
+        white-space: normal;
+        word-break: break-word;
+        max-width: 100%;
     }
 
     .hero-date {
@@ -556,13 +562,14 @@ footer.meta {
 
     /* message area gets more breathing room */
     .message-wrap {
-        max-height: 320px;
+        max-height: 460px;
         padding-right: 6px;
+        padding-left: 6px;
     }
 
     .message-wrap p,
     #messageLine {
-        font-size: 1.12rem;
+        font-size: 1.18rem;
         line-height: 2;
     }
 
@@ -676,4 +683,17 @@ footer.meta {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* Extra safety: ensure hero elements never overflow their container */
+.hero-title,
+.hero-main,
+.hero-date {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+/* Keep the decorative heart from pushing content off-screen on very small viewports */
+.hero-main::before {
+    right: -18px;
 }
