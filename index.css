@@ -214,6 +214,9 @@ header h1 {
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.4);
+
+    /* make sure album is visually above the bottom heart bar */
+    z-index: 1300;
 }
 
 .album img {
@@ -233,7 +236,7 @@ header h1 {
 
 .album img.active {
     opacity: 1;
-    z-index: 2;
+    z-index: 1310;
 }
 
 .heart-particles {
@@ -456,6 +459,13 @@ footer.meta {
         line-height: 1.95;
     }
 
+    /* on small screens avoid vertically centering the entire page (so header stays visible) */
+    body {
+        align-items: flex-start;
+        padding-top: 18px;
+        /* small top spacing for status bars */
+    }
+
     /* reduce album frame height on small screens; images still cover via object-fit: cover */
     .album {
         height: 200px;
@@ -465,6 +475,23 @@ footer.meta {
 .preview.closed {
     /* hide content visually but keep layout space */
     color: transparent;
+}
+
+/* hide album visuals and particles until letter is opened */
+.preview.closed .album,
+.preview.closed .album img,
+.preview.closed #heartParticles {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 360ms ease, visibility 360ms ease;
+}
+
+.preview.open .album,
+.preview.open .album img,
+.preview.open #heartParticles {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 360ms ease, visibility 360ms ease;
 }
 
 .envelope-cover {
@@ -506,7 +533,9 @@ footer.meta {
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
+    /* push the heart bar fully below the viewport so it doesn't overlay content */
+    bottom: -90px;
+    /* height is 72px; leave a little extra spacing */
     height: 72px;
     z-index: 1250;
     pointer-events: none;
@@ -519,6 +548,7 @@ footer.meta {
 @media (max-width: 420px) {
     body {
         padding: 14px;
+        align-items: flex-start;
     }
 
     .wrap {
