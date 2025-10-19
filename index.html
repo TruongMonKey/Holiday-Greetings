@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Chúc mừng 20/10 — Ngày Phụ Nữ Việt Nam</title>
     <meta name="description" content="Thiệp chúc mừng 20/10 — Album ảnh, hiệu ứng hoa rơi, tùy chỉnh lời chúc.">
+    <link rel="icon"
+        href="https://png.pngtree.com/png-vector/20190416/ourmid/pngtree-red-heart-vector-png-image_949206.png"
+        type="image/png">
+    <link rel="apple-touch-icon"
+        href="https://png.pngtree.com/png-vector/20190416/ourmid/pngtree-red-heart-vector-png-image_949206.png">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -17,18 +22,43 @@
                     d="M12 2c.6 0 1.2.2 1.8.5 2.5 1.4 4 4.3 4 7.2 0 4.4-3.6 8-8 8s-8-3.6-8-8c0-2.9 1.5-5.8 4-7.2C10.8 2.2 11.4 2 12 2z"
                     fill="#ff6f91" />
             </svg>
-            <h1>Chúc mừng Ngày Phụ Nữ Việt Nam — 20/10 💐</h1>
+            <h1 class="hero-title">
+                <span class="hero-main">Chúc mừng SEA Ngày Phụ Nữ Việt Nam</span>
+                <span class="hero-date">— 20/10 <span aria-hidden>💐</span></span>
+            </h1>
+            <button display id="toggleControlsBtn" title="Ẩn/Hiện phần chỉnh sửa" aria-pressed="false"
+                style="margin-left:auto;background:transparent;border:0;cursor:pointer;font-size:0.95rem;color:var(--muted)">
+            </button>
         </header>
 
         <div class="grid">
             <section class="card">
                 <div class="preview closed" id="cardPreview">
                     <div>
-                        <h2 id="toLine">Gửi: Người phụ nữ yêu dấu</h2>
+                        <h2 id="toLine">Gửi: Công chúa yêu dấu của anh</h2>
                         <div class="message-wrap">
-                            <p id="messageLine">Cảm ơn mẹ/chị/em vì những hy sinh, yêu thương và nụ cười. Chúc bạn một
-                                ngày
-                                20/10 tràn đầy niềm vui, hạnh phúc và sức khỏe.</p>
+                            <p id="messageLine">Gửi Sea yêu thương của anh,
+
+                                Hôm nay, một ngày đặc biệt dành riêng cho em phụ nữ tuyệt vời, anh muốn dành tình cảm
+                                của mình để nói với em : em là điều tuyệt vời nhất mà anh từng trong cuộc
+                                đời này.
+
+                                Anh biết ngoài kia có hàng triệu người phụ nữ, nhưng với anh, chỉ có Sea duy nhất.
+                                Em là người mang lại sự bình yên khi anh mệt mỏi, là điểm tựa khi anh yếu lòng, là niềm
+                                tin khiến anh không ngừng cố gắng mỗi ngày.
+
+                                Nhân ngày Phụ nữ Việt Nam 20/10, anh muốn chúc em hạnh phúc trong hôm nay… mà
+                                là hạnh phúc mãi về sau. Anh mong mọi khoảnh khắc bên em đều tràn ngập tiếng cười và
+                                trái tim em lúc nào cũng được sưởi ấm
+                                bằng tình yêu tình yêu của anh sẽ bù đắp mọi khó khăn trong cuộc sống em. Anh mong em
+                                luôn tươi cười mà không phải lo nghĩ nhiều nữa. Anh sẽ luôn đồng hành cùng em cố gắng cả
+                                bây giờ và tương lai
+
+                                Cảm ơn em vì đã đến bên anh. Cảm ơn vì những yêu thương em đã cho.
+                                Chúc Sea của anh có một ngày 20/10 thật ngọt ngào, ý nghĩa và đáng nhớ.
+                                Chúc em luôn xinh đẹp, dịu dàng và luôn cu te đáng iuuuuuuuuuu
+
+                                Yêu em hơn tất cả những gì anh có thể nói bằng lời… ❤️</p>
                         </div>
                     </div>
                     <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px">
@@ -36,73 +66,50 @@
                             <svg width="28" viewBox="0 0 24 24" fill="none">
                                 <circle cx="12" cy="4" r="2.5" fill="#ff6f91" />
                                 <circle cx="18" cy="8" r="2" fill="#ff6f91" />
-                                <circle cx="12" cy="20" r="3" fill="#ff6f91" />
-                                <circle cx="6" cy="8" r="2" fill="#ff6f91" />
-                            </svg>
-                            <small>20/10 — Yêu thương & tri ân</small>
+                                <h1 class="hero-title">
+                                    <span class="hero-main">Chúc mừng Ngày Phụ Nữ Việt Nam</span>
+                                    <span class="hero-date">— 20/10 <span aria-hidden>💐</span></span>
+                                </h1>
                         </div>
-                        <div style="text-align:right;color:var(--muted)">— <strong id="fromLine">Người thân</strong>
+                        <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+                            <button id="autoScrollBtn" class="secondary" title="Tự động lướt">Tự động lướt</button>
+                            <small style="color:var(--muted)">Bấm để tự động lướt lời chúc</small>
+                        </div>
+                        <div class="envelope-cover" role="button" aria-label="Mở thư">
+                            <div class="envelope-content">
+                                <button id="openLetterBtn" class="open-image-btn" aria-label="Xem thư">
+                                    <img src="https://png.pngtree.com/png-clipart/20230313/original/pngtree-love-letter-valentines-day-png-image_8985328.png"
+                                        alt="Mở thư" />
+                                </button>
+                                <div class="open-caption">Xem thư</div>
+                            </div>
                         </div>
                     </div>
-                    <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-                        <button id="autoScrollBtn" class="secondary" title="Tự động lướt">Tự động lướt</button>
-                        <small style="color:var(--muted)">Bấm để tự động lướt lời chúc</small>
-                    </div>
-                    <div class="envelope-cover" role="button" aria-label="Mở thư">
-                        <div class="envelope-content">
-                            <div class="envelope-graphic">✉️</div>
-                            <button id="openLetterBtn" class="secondary">Mở thư</button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="album" id="album">
-                    <div id="heartParticles" class="heart-particles" aria-hidden="true"></div>
-                    <img src="https://cdn-media.sforum.vn/storage/app/media/anh-dep-68.jpg" class="active"
-                        alt="Album 1">
-                    <img src="https://anhvienpiano.com/wp-content/uploads/2020/05/gio-vang-chup-anh-qua-trinh.jpg"
-                        alt="Album 2">
-                    <img src="https://internetviettel.vn/wp-content/uploads/2017/05/H%C3%ACnh-%E1%BA%A3nh-minh-h%E1%BB%8Da.jpg"
-                        alt="Album 3">
-                </div>
+                    <div class="album" id="album">
+                        <div id="heartParticles" class="heart-particles" aria-hidden="true"></div>
+                        <img src="images/anh1.jpg" class="active" alt="Album 1">
+                        <img src="images/anh2.jpg" alt="Album 2">
+                        <img src="images/anh3.jpg" alt="Album 3">
+                        <img src="images/z7025738027802_8e433d0adb73223ed620c1e284de14cb.jpg" alt="Album 4">
+                        <img src="images/z7133068432706_88f9bdc6836778c99aa2ded1edc6f085.jpg" alt="Album 5">
+                        <img src="images/z7133068432707_0365754e20fe3448c33b5f9daf13e285.jpg" alt="Album 6">
+                        <img src="images/z7133068432708_bab658214c11cd0d39847146ae746b77.jpg" alt="Album 7">
+                        <img src="images/z7133068432709_366a3a61676161132ce174df7c0ca3ca.jpg" alt="Album 8">
+                        <img src="images/z7133068434135_2d6a39f33dcbeaec1d8ac83623eb79bc.jpg" alt="Album 9">
+                        <img src="images/z7133068436038_c070075f62432d9b80077be316390eb0.jpg" alt="Album 10">
+                        <img src="images/z7133068436039_184a76989bf089cebf66b06ad8020ccc.jpg" alt="Album 11">
+                        <img src="images/z7133068436040_4574ccdd1b3d363e90d5fbc5b7d8169f.jpg" alt="Album 12">
+                        <img src="images/z7133068438583_641ec47b0898d812f2d2e3503fee0dc8.jpg" alt="Album 13">
+                    </div>
 
-                <footer class="meta">✨ Tùy chỉnh tên và lời chúc, sao chép để gửi tin nhắn hoặc in ra giấy để tặng trực
-                    tiếp!</footer>
             </section>
 
-            <aside class="card">
-                <div class="controls">
-                    <div>
-                        <label for="toInput">Gửi tới (tên)</label>
-                        <input id="toInput" type="text" value="Người phụ nữ yêu dấu" />
-                    </div>
-                    <div>
-                        <label for="messageInput">Lời chúc</label>
-                        <textarea
-                            id="messageInput">Cảm ơn mẹ/chị/em vì những hy sinh, yêu thương và nụ cười. Chúc bạn một ngày 20/10 tràn đầy niềm vui, hạnh phúc và sức khỏe.</textarea>
-                    </div>
-                    <div>
-                        <label for="fromInput">Người gửi (ký tên)</label>
-                        <input id="fromInput" type="text" value="Người thân" />
-                    </div>
-                    <div class="btnrow">
-                        <button id="applyBtn">Áp dụng</button>
-                        <button id="copyBtn" class="secondary">Sao chép</button>
-                        <button id="printBtn" class="muted">In thiệp</button>
-                    </div>
-                    <div class="help" style="font-size:.9rem;color:var(--muted)">💡 Mẹo: Bạn có thể thay ảnh trong album
-                        bằng ảnh riêng của mình!</div>
-                </div>
-            </aside>
+            <!-- editing controls removed for clean preview -->
         </div>
 
-        <section style="margin-top:18px;text-align:center;color:var(--muted)">
-            <small>🌸 Chúc bạn và những người phụ nữ quanh bạn một ngày 20/10 ngập tràn yêu thương 🌸</small>
-        </section>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script src="index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+        <script src="index.js"></script>
 </body>
 
 </html>

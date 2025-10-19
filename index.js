@@ -21,62 +21,11 @@ function applyChanges() {
     } catch (e) { }
 }
 
-applyBtn?.addEventListener('click', () => {
-    applyChanges();
-    applyBtn.textContent = 'Đã áp dụng ✓';
-    setTimeout(() => applyBtn.textContent = 'Áp dụng', 1200);
-});
 
 // ======================= Sao chép =======================
-copyBtn?.addEventListener('click', async () => {
-    applyChanges();
-    const payload = `${toLine.textContent}\n\n${messageLine.textContent}\n\n— ${fromLine.textContent}\n(Chúc mừng 20/10)`;
-    try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(payload);
-        } else {
-            throw new Error('Clipboard API không hỗ trợ');
-        }
-        copyBtn.textContent = 'Đã sao chép ✓';
-        setTimeout(() => (copyBtn.textContent = 'Sao chép'), 1400);
-    } catch {
-        const ta = document.createElement('textarea');
-        ta.value = payload;
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-            document.execCommand('copy');
-        } catch (e) { }
-        ta.remove();
-        copyBtn.textContent = 'Đã sao chép ✓';
-        setTimeout(() => (copyBtn.textContent = 'Sao chép'), 1400);
-    }
-});
 
 // ======================= In thiệp =======================
-printBtn?.addEventListener('click', () => {
-    applyChanges();
-    const printContents = document.getElementById('cardPreview')?.innerHTML;
-    const w = window.open('', '_blank');
-    if (!w) {
-        alert('Trình duyệt đã chặn cửa sổ popup. Vui lòng cho phép popup để in.');
-        return;
-    }
-    w.document.write(`
-    <!doctype html>
-    <html><head><meta charset="utf-8"><title>In thiệp 20/10</title>
-    <style>
-      body { font-family: Segoe UI, Roboto, Arial; margin: 30px; background: #fff3f9; }
-      .preview { border: 1px solid #ddd; padding: 20px; border-radius: 8px; }
-    </style></head>
-    <body><div class="preview">${printContents}</div></body></html>`);
-    w.document.close();
-    w.focus();
-    setTimeout(() => {
-        w.print();
-        w.close();
-    }, 300);
-});
+// Note: apply/copy/print controls removed because the preview is fixed. Print/copy can be re-added if needed.
 
 // ======================= Album ảnh tự động =======================
 (function initAlbum() {
@@ -316,6 +265,7 @@ printBtn?.addEventListener('click', () => {
 
 // ======================= Khởi tạo mặc định =======================
 applyChanges();
+// (editing controls removed — single-column preview)
 
 // ======================= Auto-scroll cho lời chúc =======================
 (function initAutoScroll() {
@@ -325,8 +275,10 @@ applyChanges();
 
     let autoScrolling = false;
     let autoTimer = null;
-    const pxPerTick = 1.5; // pixels per interval
-    const tickMs = 18; // interval ms -> ~55fps
+    // slower default: small pixel increment and longer interval for gentler scroll
+    const previewEl = document.getElementById('cardPreview');
+    const pxPerTick = previewEl && previewEl.dataset.scrollPx ? Number(previewEl.dataset.scrollPx) : 0.6; // pixels per interval
+    const tickMs = previewEl && previewEl.dataset.scrollMs ? Number(previewEl.dataset.scrollMs) : 30; // interval ms -> ~33fps
 
     function stopAuto() {
         if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
